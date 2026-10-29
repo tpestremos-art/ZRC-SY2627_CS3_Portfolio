@@ -15,14 +15,40 @@ class Patient:
     def set_bill_amount(self, bill_amount):
         self.__bill_amount = bill_amount
 
-    def calculate_bill():
-        bill = self.__bill_patient * 1
-        return bill 
+    def calculate_bill(self):
+        return self.__bill_amount
 
-class Senior_Pateint(Patient):
-        def calculate_bill(self):
-            return get_bill_amount() * 0.8
+
+class Senior_Patient(Patient):
+    def __init__(self, name, bill_amount):
+        super().__init__(name, bill_amount)
+
+    def calculate_bill(self):
+        return self.get_bill_amount() * 0.80
+
 
 class PhilHealth_Patient(Patient):
-        pass
+    def __init__(self, name, bill_amount):
+        super().__init__(name, bill_amount)
 
+    def calculate_bill(self):
+        return self.get_bill_amount() * 0.85
+
+
+regularp = Patient("John Doe", 5000) 
+seniorp = Senior_Patient("John Delta Ruz", 5000)
+philhealthp = PhilHealth_Patient("Maria Oggay", 5000)
+
+patients = [
+    regularp,
+    seniorp,
+    philhealthp
+]
+
+print("Hospital Billing System")
+print("-----------------------")
+
+for patient in patients:
+    print(f"\nPatient Name: {patient.get_name()}")
+    print(f"Original Bill: ₱{patient.get_bill_amount():,.2f}")
+    print(f"Final Bill: ₱{patient.calculate_bill():,.2f}")
