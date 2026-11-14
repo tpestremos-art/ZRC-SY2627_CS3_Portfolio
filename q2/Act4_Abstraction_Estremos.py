@@ -13,7 +13,7 @@ class TempSensor(Sensor):
     def get_reading(self):
         return "24.5°C"
 
-print("\n--- Lab inventory System ---")
+print("\n--- Lab Inventory System ---")
 
 ph = PHSensor()
 print("[pH Sensor] Reading: ", ph.get_reading())
